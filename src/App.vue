@@ -3,7 +3,8 @@ import { reactive } from 'vue';
 import Calculadora from './componentes/Calculadora.vue'
 const estado = reactive({
   numAnterior:'',
-  operador: '',
+  operador: ['+','-','X','/'],
+  operadorAtual: '',
   numAtual: '',
   resultado: '',
 
@@ -28,24 +29,28 @@ const botaoClicado = (texto) =>{
       }else{
         return
       }
-      
+
+    }
+    else if(estado.operador.includes(texto)){
+      estado.operadorAtual = texto 
     }
     else{
-    if(text === '='){
+    if(texto === '='){
         calcular()
+        estado.operadorAtual= ''
     }
+
     estado.numAnterior= estado.numAtual
-    estado.operador= ''
     estado.numAtual= ''
   }
 }
 
 
 const calcular  = () => {
-  const {operador} = estado
+  const {operadorAtual} = estado
   const num1 = parseFloat(estado.numAtual)
   const num2 = parseFloat(estado.numAnterior)
-  switch(operador){
+  switch(operadorAtual){
     case '+': {
       estado.resultado = (num1 + num2).toString
       break;
