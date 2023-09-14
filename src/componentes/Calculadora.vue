@@ -1,5 +1,5 @@
 <script setup>
-    const props = defineProps(['botaoClicado','resultado'])
+    const props = defineProps(['botaoClicado','resultado',])
 </script>
 
 
@@ -15,26 +15,26 @@
                 <td><button class="botao" @click="props.botaoClicado('X')"  >X</button></td>
             </tr>
             <tr>
-                <td><button class="botao" @click="props.botaoClicado(7)"  >7</button></td>
-                <td><button class="botao" @click="props.botaoClicado(8)"  >8</button></td>
-                <td><button class="botao" @click="props.botaoClicado(9)"  >9</button></td>
+                <td><button class="botao" @click="props.botaoClicado('7')"  >7</button></td>
+                <td><button class="botao" @click="props.botaoClicado('8')"  >8</button></td>
+                <td><button class="botao" @click="props.botaoClicado('9')"  >9</button></td>
                 <td><button class="botao" @click="props.botaoClicado('-')"  >-</button></td>
             </tr>
             <tr>
-                <td><button class="botao" @click="props.botaoClicado(4)"  >4</button></td>
-                <td><button class="botao" @click="props.botaoClicado(5)"  >5</button></td>
-                <td><button class="botao" @click="props.botaoClicado(6)"  >6</button></td>
+                <td><button class="botao" @click="props.botaoClicado('4')"  >4</button></td>
+                <td><button class="botao" @click="props.botaoClicado('5')"  >5</button></td>
+                <td><button class="botao" @click="props.botaoClicado('6')"  >6</button></td>
                 <td><button class="botao" @click="props.botaoClicado('+')"  >+</button></td>
             </tr>
             <tr>
-                <td><button class="botao" @click="props.botaoClicado(1)"  >1</button></td>
-                <td><button class="botao" @click="props.botaoClicado(2)"  >2</button></td>
-                <td><button class="botao" @click="props.botaoClicado(3)"  >3</button></td>
-                <td rowspan="2"> <button class="botao" style="height: 106px;" @click="botaoClicado('=')">=</button></td>
+                <td><button class="botao" @click="props.botaoClicado('1')"  >1</button></td>
+                <td><button class="botao" @click="props.botaoClicado('2')"  >2</button></td>
+                <td><button class="botao" @click="props.botaoClicado('3')"  >3</button></td>
+                <td rowspan="2"> <button class="botao" style="height: 106px;" @click="botaoClicado('=') ">=</button></td>
             </tr>
             <tr>
-                <td colspan="2"><button class="botao" style="width: 106px;" @click="props.botaoClicado('0')">0</button></td>
-                <td><button class="botao" onclick="insert('.')">.</button></td>
+                <td colspan="2"><button class="botao" style="width: 106px;" @click="props.botaoClicado(0)">0</button></td>
+                <td><button class="botao" @click="props.botaoClicado('.')">.</button></td>
             </tr>
         </table>
     </div>
