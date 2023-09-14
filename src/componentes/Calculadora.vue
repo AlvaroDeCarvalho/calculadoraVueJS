@@ -1,12 +1,12 @@
 <script setup>
-    const props = defineProps(['botaoClicado','resultado',])
+    const props = defineProps(['botaoClicado','operacao',])
 </script>
 
 
 <template>
     <div class="calculadora">
         <h1>Calculadora</h1>
-        <p id="resultado">{{ props.resultado}}</p>
+        <p id="resultado" @change="props.operacao">{{ props.operacao}}</p>
         <table>
             <tr>
                 <td><button class="botao" @click="props.botaoClicado('C')"  >C</button></td>

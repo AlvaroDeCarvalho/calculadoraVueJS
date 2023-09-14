@@ -7,10 +7,20 @@ const estado = reactive({
   operadorAtual: '',
   numAtual: '',
   resultado: '',
-
+  
 });
+
+const operacao = () => {
+  if (estado.numAnterior && estado.operadorAtual && estado.numAtual) {
+    return `${estado.numAnterior} ${estado.operadorAtual} ${estado.numAtual}`;
+  } else {
+    return '';
+  }
+}
+
 const botaoClicado = (texto) =>{
-    if(texto >= '0' && texto <= '9' ){
+    const textoInteiro = parseInt(texto)
+    if(textoInteiro >= 0 && texto <= 9){
       estado.numAtual += texto
     }
     else if(texto === 'C') {
@@ -18,7 +28,7 @@ const botaoClicado = (texto) =>{
     estado.operador= ''
     estado.numAtual= ''
     estado.resultado= ''
-    
+  
     }
     else if(texto === 'DEL'){
       estado.numAnterior = estado.numAnterior.slice(0,-1)
@@ -52,19 +62,19 @@ const calcular  = () => {
   const num2 = parseFloat(estado.numAnterior)
   switch(operadorAtual){
     case '+': {
-      estado.resultado = (num1 + num2).toString
+      estado.resultado = (num1 + num2).toString()
       break;
     }
     case '-': {
-      estado.resultado = (num1 - num2).toString
+      estado.resultado = (num1 - num2).toString()
       break;
     }
     case '/': {
-      estado.resultado = (num1 / num2).toString
+      estado.resultado = (num1 / num2).toString()
       break;
     }
     case 'X': {
-      estado.resultado = (num1 / num2).toString
+      estado.resultado = (num1 / num2).toString()
       break;
     }
   }
@@ -74,7 +84,7 @@ const calcular  = () => {
 
 <template>
   <Calculadora :botao-clicado="botaoClicado"
-  :resultado="estado.resultado"
+  :operacao="operacao()"
   />
 </template>
 
