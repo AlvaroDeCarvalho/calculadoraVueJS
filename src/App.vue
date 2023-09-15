@@ -10,14 +10,13 @@ const estado = reactive({
   
 });
 
-const operacao = () => {
+function calcularOperacao() {
   if (estado.numAnterior && estado.operadorAtual && estado.numAtual) {
     return `${estado.numAnterior} ${estado.operadorAtual} ${estado.numAtual}`;
   } else {
     return '';
   }
 }
-
 const botaoClicado = (texto) =>{
     const textoInteiro = parseInt(texto)
     if(textoInteiro >= 0 && texto <= 9){
@@ -84,7 +83,7 @@ const calcular  = () => {
 
 <template>
   <Calculadora :botao-clicado="botaoClicado"
-  :operacao="operacao()"
+  :mostrar-result="calcularOperacao()"
   />
 </template>
 

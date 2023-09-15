@@ -1,12 +1,13 @@
 <script setup>
-    const props = defineProps(['botaoClicado','operacao',])
+    const props = defineProps(['botaoClicado','mostrarResult',])
 </script>
 
 
 <template>
-    <div class="calculadora">
+    <div class="container">
+        <div class="calculadora">
         <h1>Calculadora</h1>
-        <p id="resultado" @change="props.operacao">{{ props.operacao}}</p>
+         <p id="resultado">{{ props.mostrarResult }}</p>
         <table>
             <tr>
                 <td><button class="botao" @click="props.botaoClicado('C')"  >C</button></td>
@@ -38,6 +39,7 @@
             </tr>
         </table>
     </div>
+    </div>
 </template>
 
 <style scoped>
@@ -47,8 +49,8 @@
             padding: 0;
             font-family: sans-serif;
         }
-        .fundo{
-            background-image: linear-gradient(45deg,black, crimson);
+        .container{
+            background-image: linear-gradient(45deg,rgb(176, 186, 24), crimson);
             height: 100vh;
             color: #fff;
             font-family: Arial, Helvetica, sans-serif;
