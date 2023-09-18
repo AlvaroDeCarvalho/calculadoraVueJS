@@ -58,29 +58,35 @@ function calcularOperacao() {
   }
 }
 
-const calcular  = () => {
-  const {operadorAtual} = estado
-  const num1 = parseFloat(estado.numAtual)
-  const num2 = parseFloat(estado.numAnterior)
-  switch(operadorAtual){
-    case '+': {
-      estado.resultado = (num1 + num2).toString()
-      break;
-    }
-    case '-': {
-      estado.resultado = (num1 - num2).toString()
-      break;
-    }
-    case '/': {
-      estado.resultado = (num1 / num2).toString()
-      break;
-    }
-    case 'X': {
-      estado.resultado = (num1 * num2).toString()
-      break;
+const calcular = () => {
+  const { operadorAtual } = estado;
+  const num1 = parseFloat(estado.numAnterior);
+  const num2 = parseFloat(estado.numAtual);
+
+  if (isNaN(num1) || isNaN(num2) || !operadorAtual) {
+    estado.resultado = ''; // Caso não haja números ou operador válido, definir resultado como vazio
+  } else {
+    switch (operadorAtual) {
+      case '+':
+        estado.resultado = (num1 + num2).toString();
+        break;
+      case '-':
+        estado.resultado = (num1 - num2).toString();
+        break;
+      case '/':
+        estado.resultado = (num1 / num2).toString();
+        break;
+      case 'X':
+        estado.resultado = (num1 * num2).toString();
+        break;
+      default:
+        estado.resultado = ''; // Operador inválido, definir resultado como vazio
     }
   }
-  return estado.resultado 
+  estado.numAtual = ''; // Limpar numAtual após o cálculo
+  estado.numAnterior = ''; // Limpar numAnterior após o cálculo
+  estado.operadorAtual = ''; // Limpar operadorAtual após o cálculo
+  return estado.resultado;
 }
 </script>
 
